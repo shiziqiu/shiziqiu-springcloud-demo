@@ -1,0 +1,44 @@
+server:
+  port: 8081
+
+
+
+spring:
+  application:
+    name: cloud-service
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+#spring: 
+#  application: 
+#    name: cloud-service
+#  cloud:
+#    config:
+#      uri: http://${config.server.ip}:${config.server.port}
+#      name: cloudservice
+#      profile: ${app.profile:test}
+#   zipkin:
+#     base-url: http://localhost:9411
+#   sleuth:
+#     sampler:
+#       percentage: 1.0
+
+#service discovery url
+eureka: 
+  client:
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka/
+
+#datasource config
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/spring-cloud-zipkin?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
+  username: root
+  password: 123456
+
+#mybatis config
+mybatis:
+  typeAliasesPackage: com.shiziqiu.cloud.model.User
+  mapperLocations: classpath:mapper/*.xml

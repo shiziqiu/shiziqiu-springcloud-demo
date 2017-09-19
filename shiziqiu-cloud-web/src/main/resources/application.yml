@@ -1,0 +1,23 @@
+server:
+  port: 8090
+
+spring: 
+  application: 
+    name: cloud-web
+#  cloud:
+#    config:
+#      uri: http://${config.server.ip}:${config.server.port}
+#      name: cloudweb
+#      profile: ${app.profile:test}
+
+#service discovery url
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#ribbon config
+cloud-service:
+  ribbon:
+    ConnectTimeout: 5000
+    ReadTimeout: 10000
